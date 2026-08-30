@@ -239,6 +239,83 @@ textarea {
 .router-metric .is-red { color: var(--cyber-red); }
 .router-metric .is-positive { color: var(--cyber-green); }
 
+.kfos-app-header {
+  display: block;
+  padding: 1rem;
+  border-bottom: 1px solid color-mix(in oklch, var(--cyber-cyan) 15%, transparent);
+  color: inherit;
+  text-decoration: none;
+}
+
+.kfos-app-header:hover {
+  color: inherit;
+}
+
+.kfos-app-header-body {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.kfos-app-header-mark-wrap {
+  position: relative;
+  flex: none;
+}
+
+.kfos-app-header-mark {
+  width: 1.75rem;
+  height: 1.75rem;
+  display: grid;
+  place-items: center;
+  border: 1px solid color-mix(in oklch, var(--cyber-cyan) 30%, transparent);
+  border-radius: 2px;
+  color: var(--cyber-cyan);
+  font-size: 0.78rem;
+  font-weight: 900;
+  line-height: 1;
+  background: color-mix(in oklch, var(--cyber-cyan) 7%, transparent);
+  box-shadow: inset 0 0 10px color-mix(in oklch, var(--cyber-cyan) 7%, transparent);
+}
+
+.kfos-app-header-mark img {
+  width: 1.45rem;
+  height: 1.45rem;
+  object-fit: contain;
+}
+
+.kfos-app-header-status {
+  position: absolute;
+  top: -0.125rem;
+  right: -0.125rem;
+}
+
+.kfos-app-header-copy {
+  min-width: 0;
+}
+
+.kfos-app-header-title {
+  color: var(--cyber-cyan);
+  font-size: 0.875rem;
+  font-weight: 800;
+  line-height: 1;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+}
+
+.kfos-app-header-title span {
+  color: var(--cyber-magenta);
+}
+
+.kfos-app-header-subtitle {
+  margin-top: 0.32rem;
+  color: color-mix(in oklch, var(--cyber-cyan) 42%, transparent);
+  font-size: 0.55rem;
+  font-weight: 700;
+  line-height: 1;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+}
+
 .kfos-nav-item,
 .home-nav-item,
 .forge-nav-item {

@@ -7,6 +7,97 @@ defmodule KfosUi.LayoutComponents do
 
   alias Phoenix.LiveView.JS
 
+  attr(:href, :any, default: nil)
+  attr(:external, :boolean, default: false)
+  attr(:icon, :string, default: "hero-shield-check-solid")
+  attr(:image_src, :string, default: nil)
+  attr(:mark, :string, default: nil)
+  attr(:title, :string, required: true)
+  attr(:accent, :string, default: nil)
+  attr(:subtitle, :string, default: nil)
+  attr(:status, :boolean, default: true)
+  attr(:class, :any, default: "kfos-app-header")
+  attr(:body_class, :any, default: "kfos-app-header-body")
+  attr(:rest, :global)
+
+  def app_header(assigns) do
+    ~H"""
+    <%= cond do %>
+      <% @href && @external -> %>
+        <a href={@href} class={@class} {@rest}>
+          <.app_header_body
+            icon={@icon}
+            image_src={@image_src}
+            mark={@mark}
+            title={@title}
+            accent={@accent}
+            subtitle={@subtitle}
+            status={@status}
+            class={@body_class}
+          />
+        </a>
+      <% @href -> %>
+        <.link navigate={@href} class={@class} {@rest}>
+          <.app_header_body
+            icon={@icon}
+            image_src={@image_src}
+            mark={@mark}
+            title={@title}
+            accent={@accent}
+            subtitle={@subtitle}
+            status={@status}
+            class={@body_class}
+          />
+        </.link>
+      <% true -> %>
+        <div class={@class} {@rest}>
+          <.app_header_body
+            icon={@icon}
+            image_src={@image_src}
+            mark={@mark}
+            title={@title}
+            accent={@accent}
+            subtitle={@subtitle}
+            status={@status}
+            class={@body_class}
+          />
+        </div>
+    <% end %>
+    """
+  end
+
+  attr(:icon, :string, required: true)
+  attr(:image_src, :string, default: nil)
+  attr(:mark, :string, default: nil)
+  attr(:title, :string, required: true)
+  attr(:accent, :string, default: nil)
+  attr(:subtitle, :string, default: nil)
+  attr(:status, :boolean, default: true)
+  attr(:class, :any, required: true)
+
+  defp app_header_body(assigns) do
+    ~H"""
+    <div class={@class}>
+      <div class="kfos-app-header-mark-wrap">
+        <span class="kfos-app-header-mark">
+          <img :if={@image_src} src={@image_src} alt="" />
+          <span :if={!@image_src && @mark}>{@mark}</span>
+          <.icon :if={!@image_src && !@mark} name={@icon} class="size-7" />
+        </span>
+        <span :if={@status} class="cyber-status-dot online kfos-app-header-status"></span>
+      </div>
+      <div class="kfos-app-header-copy">
+        <div class="kfos-app-header-title glow-cyan">
+          {@title}<span :if={@accent}>{@accent}</span>
+        </div>
+        <div :if={@subtitle} class="kfos-app-header-subtitle">
+          {@subtitle}
+        </div>
+      </div>
+    </div>
+    """
+  end
+
   attr(:href, :string, required: true)
   attr(:icon, :string, required: true)
   attr(:label, :string, required: true)
