@@ -10,6 +10,7 @@ defmodule KfosUi.LayoutComponentsTest do
       render_component(&LayoutComponents.app_shell/1,
         id: "test-shell",
         main_id: "test-main",
+        sidebar_id: "test-sidebar",
         mobile_title: "TEST//APP",
         sidebar_header: [%{inner_block: fn _, _ -> "Header" end}],
         sidebar_nav: [%{inner_block: fn _, _ -> "Navigation" end}],
@@ -20,6 +21,7 @@ defmodule KfosUi.LayoutComponentsTest do
     assert html =~ ~s(id="test-shell")
     assert html =~ ~s(id="test-shell-nav-toggle")
     assert html =~ ~s(id="test-main")
+    assert html =~ ~s(id="test-sidebar")
     assert html =~ "TEST//APP"
     assert html =~ "Navigation"
     assert html =~ "Content"

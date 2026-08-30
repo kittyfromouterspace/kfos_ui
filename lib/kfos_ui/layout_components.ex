@@ -9,6 +9,7 @@ defmodule KfosUi.LayoutComponents do
 
   attr(:id, :string, required: true)
   attr(:main_id, :string, required: true)
+  attr(:sidebar_id, :string, default: nil)
   attr(:mobile_title, :string, required: true)
   attr(:main_class, :any, default: "kfos-shell-main flex-1 p-4 lg:p-6 overflow-auto")
 
@@ -52,7 +53,7 @@ defmodule KfosUi.LayoutComponents do
 
       <div class="drawer-side z-40">
         <label for={@toggle_id} aria-label="Close navigation" class="drawer-overlay"></label>
-        <aside class={@sidebar_class}>
+        <aside id={@sidebar_id} class={@sidebar_class}>
           {render_slot(@sidebar_header)}
           {render_slot(@sidebar_nav)}
           {render_slot(@sidebar_footer)}
