@@ -140,38 +140,52 @@ defmodule KfosUi.LayoutComponents do
 
   def theme_toggle(assigns) do
     ~H"""
-    <div class={@class} aria-label="Color theme">
-      <div class="kfos-theme-indicator" />
+    <div class={@class} role="group" aria-label="Color theme">
+      <div class="kfos-theme-readout" aria-hidden="true">
+        <span><i></i>DISPLAY MATRIX</span>
+        <span class="kfos-theme-current">
+          <span class="kfos-theme-mode-system">SYS</span>
+          <span class="kfos-theme-mode-light">LUX</span>
+          <span class="kfos-theme-mode-dark">NITE</span>
+        </span>
+      </div>
 
-      <button
-        class="kfos-theme-button"
-        phx-click={JS.dispatch("phx:set-theme")}
-        data-phx-theme="system"
-        title="Use system theme"
-        aria-label="Use system theme"
-      >
-        <.icon name="hero-computer-desktop-micro" class="size-4 opacity-75 hover:opacity-100" />
-      </button>
+      <div class="kfos-theme-track">
+        <div class="kfos-theme-indicator" aria-hidden="true" />
 
-      <button
-        class="kfos-theme-button"
-        phx-click={JS.dispatch("phx:set-theme")}
-        data-phx-theme="light"
-        title="Use light theme"
-        aria-label="Use light theme"
-      >
-        <.icon name="hero-sun-micro" class="size-4 opacity-75 hover:opacity-100" />
-      </button>
+        <button
+          class="kfos-theme-button"
+          phx-click={JS.dispatch("phx:set-theme")}
+          data-phx-theme="system"
+          title="Use system theme"
+          aria-label="Use system theme"
+        >
+          <.icon name="hero-computer-desktop-micro" class="size-4" />
+          <span>SYS</span>
+        </button>
 
-      <button
-        class="kfos-theme-button"
-        phx-click={JS.dispatch("phx:set-theme")}
-        data-phx-theme="dark"
-        title="Use dark theme"
-        aria-label="Use dark theme"
-      >
-        <.icon name="hero-moon-micro" class="size-4 opacity-75 hover:opacity-100" />
-      </button>
+        <button
+          class="kfos-theme-button"
+          phx-click={JS.dispatch("phx:set-theme")}
+          data-phx-theme="light"
+          title="Use light theme"
+          aria-label="Use light theme"
+        >
+          <.icon name="hero-sun-micro" class="size-4" />
+          <span>LUX</span>
+        </button>
+
+        <button
+          class="kfos-theme-button"
+          phx-click={JS.dispatch("phx:set-theme")}
+          data-phx-theme="dark"
+          title="Use dark theme"
+          aria-label="Use dark theme"
+        >
+          <.icon name="hero-moon-micro" class="size-4" />
+          <span>NITE</span>
+        </button>
+      </div>
     </div>
     """
   end

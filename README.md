@@ -110,6 +110,8 @@ let liveSocket = new LiveSocket("/live", Socket, {
 
 Use initTheme("dark") when an application must start dark. Theme preference is stored in localStorage under phx:theme and is changed by theme_toggle.
 
+KFOS UI owns the shared `--cyber-*` palette, including surface, panel, border, text, and control tokens. Consuming applications should use those tokens for local components instead of redefining them. The `system` theme follows `prefers-color-scheme`; explicit light and dark choices override it.
+
 Do not add inline script tags to HEEx. Shared hooks are external JavaScript. Colocated hooks must use Phoenix LiveView's .HookName convention.
 
 ## Component Reference
@@ -248,7 +250,7 @@ Pass image_src for a product mark image. Omit href for a non-linked header. Use 
 <.flash_group flash={@flash} />
 ~~~
 
-The active internal nav item receives aria-current="page". Place one full-width theme toggle at the bottom of the navigation panel and one flash group in the shell. Do not call flash_group from individual LiveViews.
+The active internal nav item receives aria-current="page". Every application sidebar must render one full-width shared theme toggle at the bottom of its navigation panel so theme behavior and presentation stay consistent across KFOS products. Place one flash group in the shell; do not call flash_group from individual LiveViews.
 
 ### KfosUi.ClockComponents
 
