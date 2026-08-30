@@ -267,14 +267,14 @@ textarea {
   height: 1.75rem;
   display: grid;
   place-items: center;
-  border: 1px solid color-mix(in oklch, var(--cyber-cyan) 30%, transparent);
+  border: 1px solid color-mix(in oklch, var(--cyber-green) 42%, transparent);
   border-radius: 2px;
-  color: var(--cyber-cyan);
+  color: var(--cyber-green);
   font-size: 0.78rem;
   font-weight: 900;
   line-height: 1;
-  background: color-mix(in oklch, var(--cyber-cyan) 7%, transparent);
-  box-shadow: inset 0 0 10px color-mix(in oklch, var(--cyber-cyan) 7%, transparent);
+  background: color-mix(in oklch, var(--cyber-green) 7%, transparent);
+  box-shadow: inset 0 0 10px color-mix(in oklch, var(--cyber-green) 7%, transparent);
 }
 
 .kfos-app-header-mark img {
@@ -294,7 +294,9 @@ textarea {
 }
 
 .kfos-app-header-title {
-  color: var(--cyber-cyan);
+  color: var(--cyber-green);
+  text-shadow: 0 0 7px color-mix(in oklch, var(--cyber-green) 80%, transparent),
+    0 0 15px color-mix(in oklch, var(--cyber-green) 35%, transparent);
   font-size: 0.875rem;
   font-weight: 800;
   line-height: 1;
@@ -308,12 +310,31 @@ textarea {
 
 .kfos-app-header-subtitle {
   margin-top: 0.32rem;
-  color: color-mix(in oklch, var(--cyber-cyan) 42%, transparent);
+  color: color-mix(in oklch, var(--cyber-green) 42%, transparent);
   font-size: 0.55rem;
   font-weight: 700;
   line-height: 1;
   text-transform: uppercase;
   letter-spacing: 0.18em;
+}
+
+.kfos-page-header-title {
+  color: var(--cyber-green);
+  text-shadow: 0 0 7px color-mix(in oklch, var(--cyber-green) 80%, transparent),
+    0 0 15px color-mix(in oklch, var(--cyber-green) 35%, transparent);
+}
+
+.kfos-page-header-marker {
+  color: color-mix(in oklch, var(--cyber-green) 52%, transparent);
+}
+
+.kfos-page-header-divider {
+  background: linear-gradient(
+    90deg,
+    color-mix(in oklch, var(--cyber-green) 55%, transparent),
+    color-mix(in oklch, var(--cyber-green) 12%, transparent) 55%,
+    transparent
+  );
 }
 
 .kfos-nav-item,

@@ -264,8 +264,8 @@ defmodule KfosUi.CyberComponents do
     <div id={@id} class="flex items-center justify-between mb-6" {@rest}>
       <div>
         <div class="flex items-center gap-2">
-          <span class="text-primary/40 text-sm font-bold">//</span>
-          <h1 class="text-xl font-bold tracking-wider text-primary glow-cyan">
+          <span class="kfos-page-header-marker text-sm font-bold">//</span>
+          <h1 class="kfos-page-header-title text-xl font-bold tracking-wider">
             {String.upcase(@title)}
           </h1>
         </div>
@@ -277,7 +277,7 @@ defmodule KfosUi.CyberComponents do
         {render_slot(@actions)}
       </div>
     </div>
-    <div class="hud-divider mb-6"></div>
+    <div class="kfos-page-header-divider hud-divider mb-6"></div>
     """
   end
 
