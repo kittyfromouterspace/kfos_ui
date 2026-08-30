@@ -238,3 +238,137 @@ textarea {
 .router-metric .is-magenta { color: var(--cyber-magenta); }
 .router-metric .is-red { color: var(--cyber-red); }
 .router-metric .is-positive { color: var(--cyber-green); }
+
+.kfos-nav-item,
+.home-nav-item,
+.forge-nav-item {
+  min-height: 38px;
+  display: grid;
+  grid-template-columns: 22px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 7px;
+  padding: 0 9px;
+  border: 1px solid transparent;
+  border-left: 2px solid transparent;
+  border-radius: 3px;
+  color: var(--cyber-muted);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: color 0.15s ease, background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.kfos-nav-item:hover,
+.home-nav-item:hover,
+.forge-nav-item:hover {
+  color: var(--cyber-text);
+  border-color: color-mix(in oklch, var(--cyber-cyan) 18%, transparent);
+  background: color-mix(in oklch, var(--cyber-cyan) 8%, transparent);
+}
+
+.kfos-nav-item.is-active,
+.home-nav-item.is-active,
+.forge-nav-item.is-active,
+.kfos-nav-item.active,
+.home-nav-item.active,
+.forge-nav-item.active {
+  color: var(--cyber-cyan);
+  border-left-color: var(--cyber-cyan);
+  background: color-mix(in oklch, var(--cyber-cyan) 13%, transparent);
+  text-shadow: 0 0 8px color-mix(in oklch, var(--cyber-cyan) 36%, transparent);
+}
+
+.kfos-nav-item small,
+.home-nav-item small,
+.forge-nav-item small {
+  color: color-mix(in oklch, var(--cyber-amber) 75%, transparent);
+  font: 700 0.55rem/1 ui-monospace, monospace;
+}
+
+.kfos-nav-label,
+.home-nav-label {
+  margin: 18px 9px 6px;
+  color: var(--cyber-amber);
+  font-size: 0.58rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.kfos-nav-label span,
+.home-nav-label span {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.kfos-nav-label span::before,
+.home-nav-label span::before,
+.kfos-nav-label span::after,
+.home-nav-label span::after {
+  content: "";
+  height: 1px;
+  background: color-mix(in oklch, var(--cyber-amber) 35%, transparent);
+}
+
+.kfos-nav-label span::before,
+.home-nav-label span::before {
+  width: 8px;
+}
+
+.kfos-nav-label span::after,
+.home-nav-label span::after {
+  flex: 1;
+}
+
+.kfos-theme-toggle,
+.forge-theme-toggle {
+  position: relative;
+  min-height: 30px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  padding: 2px;
+  border: 1px solid color-mix(in oklch, var(--cyber-cyan) 18%, transparent);
+  border-radius: 4px;
+  background: color-mix(in oklch, var(--cyber-surface) 85%, transparent);
+}
+
+.kfos-theme-indicator,
+.forge-theme-indicator {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: calc((100% - 4px) / 3);
+  height: calc(100% - 4px);
+  border: 1px solid color-mix(in oklch, var(--cyber-cyan) 28%, transparent);
+  border-radius: 3px;
+  background: color-mix(in oklch, var(--cyber-cyan) 9%, var(--cyber-surface));
+  transition: left 0.15s ease;
+}
+
+[data-theme="light"] .kfos-theme-indicator,
+[data-theme="light"] .forge-theme-indicator {
+  left: calc((100% - 4px) / 3 + 2px);
+}
+
+[data-theme="dark"] .kfos-theme-indicator,
+[data-theme="dark"] .forge-theme-indicator {
+  left: calc(2 * (100% - 4px) / 3 + 2px);
+}
+
+.kfos-theme-button,
+.forge-theme-button {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  border: 0;
+  background: transparent;
+  color: var(--cyber-muted);
+  cursor: pointer;
+}
+
+.kfos-theme-button:hover,
+.forge-theme-button:hover {
+  color: var(--cyber-cyan);
+}
