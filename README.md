@@ -254,7 +254,7 @@ The active internal nav item receives aria-current="page". Place one theme toggl
 
 #### local_clock
 
-local_clock is managed by the shared .LocalClock hook and must have a unique ID. It uses phx-update="ignore" because the client owns the displayed time:
+local_clock is managed by the shared LocalClock hook and must have a unique ID. It uses phx-update="ignore" because the client owns the displayed time:
 
 ~~~heex
 <.local_clock id="overview-local-clock" timezone="Europe/Lisbon" />
