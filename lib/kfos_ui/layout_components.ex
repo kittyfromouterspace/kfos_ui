@@ -7,6 +7,61 @@ defmodule KfosUi.LayoutComponents do
 
   alias Phoenix.LiveView.JS
 
+  attr(:id, :string, required: true)
+  attr(:main_id, :string, required: true)
+  attr(:mobile_title, :string, required: true)
+  attr(:main_class, :any, default: "kfos-shell-main flex-1 p-4 lg:p-6 overflow-auto")
+
+  attr(:sidebar_class, :any,
+    default: "kfos-shell-sidebar cyber-sidebar min-h-full w-64 flex flex-col"
+  )
+
+  slot(:sidebar_header, required: true)
+  slot(:sidebar_nav, required: true)
+  slot(:sidebar_footer, required: true)
+  slot(:mobile_actions)
+  slot(:inner_block, required: true)
+
+  def app_shell(assigns) do
+    assigns = assign(assigns, :toggle_id, "#{assigns.id}-nav-toggle")
+
+    ~H"""
+    <div id={@id} class="kfos-shell drawer lg:drawer-open">
+      <input id={@toggle_id} type="checkbox" class="drawer-toggle" />
+      <div class="kfos-shell-content drawer-content flex flex-col">
+        <header class="kfos-mobile-header navbar lg:hidden">
+          <div class="flex-none">
+            <label
+              for={@toggle_id}
+              class="btn btn-square btn-ghost text-primary"
+              aria-label="Open navigation"
+            >
+              <.icon name="hero-bars-3" class="size-5" />
+            </label>
+          </div>
+          <div class="min-w-0 flex-1">
+            <span class="block truncate text-sm font-bold uppercase glow-cyan">{@mobile_title}</span>
+          </div>
+          <div :if={@mobile_actions != []} class="flex-none">
+            {render_slot(@mobile_actions)}
+          </div>
+        </header>
+
+        <main id={@main_id} class={@main_class}>{render_slot(@inner_block)}</main>
+      </div>
+
+      <div class="drawer-side z-40">
+        <label for={@toggle_id} aria-label="Close navigation" class="drawer-overlay"></label>
+        <aside class={@sidebar_class}>
+          {render_slot(@sidebar_header)}
+          {render_slot(@sidebar_nav)}
+          {render_slot(@sidebar_footer)}
+        </aside>
+      </div>
+    </div>
+    """
+  end
+
   attr(:href, :any, default: nil)
   attr(:external, :boolean, default: false)
   attr(:icon, :string, default: "hero-shield-check-solid")

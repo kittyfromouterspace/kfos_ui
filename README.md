@@ -89,7 +89,7 @@ Add the shared source and stylesheet to assets/css/app.css. Keep the shared impo
 @import "../../deps/kfos_ui/priv/css/kfos_ui.css";
 ~~~
 
-Keep the consuming application's Tailwind, Heroicons, and daisyUI plugin declarations. KFOS UI supplies reusable CSS and tokens; it does not replace the application asset pipeline.
+Keep the consuming application's Tailwind, Heroicons, and daisyUI component plugin declarations. Configure daisyUI with `themes: false`; KFOS UI owns the complete dark, light, and system token sets, including daisyUI's `--color-*`, radius, border, depth, and noise variables. Do not declare a daisyUI theme plugin in a consuming application.
 
 Use Tailwind utilities for local layout and shared CSS classes for shared visual behavior. Never use @apply in raw CSS.
 
@@ -110,7 +110,7 @@ let liveSocket = new LiveSocket("/live", Socket, {
 
 Use initTheme("dark") when an application must start dark. Theme preference is stored in localStorage under phx:theme and is changed by theme_toggle.
 
-KFOS UI owns the shared `--cyber-*` palette, including surface, panel, border, text, and control tokens. Consuming applications should use those tokens for local components instead of redefining them. The `system` theme follows `prefers-color-scheme`; explicit light and dark choices override it.
+KFOS UI owns the shared `--cyber-*` and daisyUI `--color-*` palettes, including surface, panel, border, text, control, status, radius, and depth tokens. Consuming applications should use those tokens for local components instead of redefining them. The `system` theme follows `prefers-color-scheme`; explicit light and dark choices override it.
 
 Do not add inline script tags to HEEx. Shared hooks are external JavaScript. Colocated hooks must use Phoenix LiveView's .HookName convention.
 
@@ -218,6 +218,22 @@ Use a regular button when an action payload differs from %{id: value}. Do not pa
 ### KfosUi.LayoutComponents
 
 Shared application-shell primitives.
+
+#### app_shell
+
+Use `app_shell` as the responsive frame for every authenticated application. It owns the desktop drawer, mobile navigation trigger, sidebar placement, and main viewport while the application supplies domain-specific slots:
+
+~~~heex
+<.app_shell id="app-shell" main_id="app-main" mobile_title="OPS//CENTER">
+  <:sidebar_header><.app_header title="OPS//CENTER" /></:sidebar_header>
+  <:sidebar_nav><nav>...</nav></:sidebar_nav>
+  <:sidebar_footer><.theme_toggle /></:sidebar_footer>
+  <:mobile_actions><span class="cyber-status-dot online"></span></:mobile_actions>
+  {render_slot(@inner_block)}
+</.app_shell>
+~~~
+
+Keep navigation routes, authorization, counts, and application status data in the consuming layout. Do not fork the drawer or responsive header markup locally.
 
 #### app_header
 

@@ -18,6 +18,7 @@ defmodule KfosUi.MixProject do
 
   defp deps do
     [
+      {:jason, "~> 1.2"},
       {:phoenix_html, "~> 4.1"},
       {:phoenix_live_view, "~> 1.1"}
     ]
