@@ -255,11 +255,13 @@ defmodule KfosUi.CyberComponents do
 
   attr(:title, :string, required: true)
   attr(:subtitle, :string, default: nil)
+  attr(:id, :string, default: nil)
+  attr(:rest, :global)
   slot(:actions)
 
   def page_header(assigns) do
     ~H"""
-    <div class="flex items-center justify-between mb-6">
+    <div id={@id} class="flex items-center justify-between mb-6" {@rest}>
       <div>
         <div class="flex items-center gap-2">
           <span class="text-primary/40 text-sm font-bold">//</span>
