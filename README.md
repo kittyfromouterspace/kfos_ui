@@ -248,13 +248,13 @@ Pass image_src for a product mark image. Omit href for a non-linked header. Use 
 <.flash_group flash={@flash} />
 ~~~
 
-The active internal nav item receives aria-current="page". Place one theme toggle and one flash group in the shell. Do not call flash_group from individual LiveViews.
+The active internal nav item receives aria-current="page". Place one full-width theme toggle at the bottom of the navigation panel and one flash group in the shell. Do not call flash_group from individual LiveViews.
 
 ### KfosUi.ClockComponents
 
 #### local_clock
 
-local_clock is managed by the shared LocalClock hook and must have a unique ID. It uses phx-update="ignore" because the client owns the displayed time:
+local_clock is managed by the shared LocalClock hook and must have a unique ID. Its kfos-local-clock class provides the green/cyan cyberpunk readout. It uses phx-update="ignore" because the client owns the displayed time:
 
 ~~~heex
 <.local_clock id="overview-local-clock" timezone="Europe/Lisbon" />

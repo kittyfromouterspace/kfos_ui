@@ -12,7 +12,7 @@ defmodule KfosUi.ClockComponents do
     ~H"""
     <div
       id={@id}
-      class={["overview-clock", @class]}
+      class={["kfos-local-clock", @class]}
       data-timezone={@timezone}
       phx-hook="LocalClock"
       phx-update="ignore"

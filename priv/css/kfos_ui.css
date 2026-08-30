@@ -267,14 +267,10 @@ textarea {
   height: 1.75rem;
   display: grid;
   place-items: center;
-  border: 1px solid color-mix(in oklch, var(--cyber-green) 42%, transparent);
-  border-radius: 2px;
   color: var(--cyber-green);
   font-size: 0.78rem;
   font-weight: 900;
   line-height: 1;
-  background: color-mix(in oklch, var(--cyber-green) 7%, transparent);
-  box-shadow: inset 0 0 10px color-mix(in oklch, var(--cyber-green) 7%, transparent);
 }
 
 .kfos-app-header-mark img {
@@ -335,6 +331,59 @@ textarea {
     color-mix(in oklch, var(--cyber-green) 12%, transparent) 55%,
     transparent
   );
+}
+
+.kfos-local-clock {
+  position: relative;
+  min-width: 9.5rem;
+  padding: 0.45rem 0.7rem 0.42rem;
+  border-left: 2px solid var(--cyber-green);
+  background: color-mix(in oklch, var(--cyber-green) 5%, transparent);
+  box-shadow: inset 0 0 14px color-mix(in oklch, var(--cyber-green) 5%, transparent);
+  text-align: right;
+}
+
+.kfos-local-clock::before,
+.kfos-local-clock::after {
+  content: "";
+  position: absolute;
+  width: 0.35rem;
+  height: 0.35rem;
+  border-color: color-mix(in oklch, var(--cyber-cyan) 65%, transparent);
+  border-style: solid;
+}
+
+.kfos-local-clock::before {
+  top: -1px;
+  right: -1px;
+  border-width: 1px 1px 0 0;
+}
+
+.kfos-local-clock::after {
+  bottom: -1px;
+  left: -1px;
+  border-width: 0 0 1px 1px;
+}
+
+.kfos-local-clock span,
+.kfos-local-clock strong {
+  display: block;
+}
+
+.kfos-local-clock span {
+  color: color-mix(in oklch, var(--cyber-cyan) 65%, transparent);
+  font-size: 0.48rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+}
+
+.kfos-local-clock strong {
+  margin-top: 0.16rem;
+  color: var(--cyber-green);
+  font-size: 1.05rem;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.08em;
+  text-shadow: 0 0 7px color-mix(in oklch, var(--cyber-green) 72%, transparent);
 }
 
 .kfos-nav-item,
@@ -422,6 +471,7 @@ textarea {
 .kfos-theme-toggle,
 .forge-theme-toggle {
   position: relative;
+  width: 100%;
   min-height: 30px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
