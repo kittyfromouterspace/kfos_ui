@@ -3,10 +3,10 @@ defmodule KfosUi.ClockComponents do
 
   use Phoenix.Component
 
-  attr :id, :string, required: true
-  attr :label, :string, default: "LOCAL TIME"
-  attr :timezone, :string, default: "Europe/Lisbon"
-  attr :class, :string, default: nil
+  attr(:id, :string, required: true)
+  attr(:label, :string, default: "LOCAL TIME")
+  attr(:timezone, :string, default: "Europe/Lisbon")
+  attr(:class, :string, default: nil)
 
   def local_clock(assigns) do
     ~H"""

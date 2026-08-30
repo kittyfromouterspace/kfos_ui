@@ -14,8 +14,8 @@ defmodule KfosUi.CyberComponents do
 
   # ── Status Badge ──────────────────────────────────────────────────────
 
-  attr :status, :atom, required: true
-  attr :class, :string, default: nil
+  attr(:status, :atom, required: true)
+  attr(:class, :string, default: nil)
 
   def status_badge(assigns) do
     ~H"""
@@ -99,9 +99,9 @@ defmodule KfosUi.CyberComponents do
 
   # ── Metric Gauge ──────────────────────────────────────────────────────
 
-  attr :label, :string, required: true
-  attr :value, :float, required: true
-  attr :unit, :string, default: "%"
+  attr(:label, :string, required: true)
+  attr(:value, :float, required: true)
+  attr(:unit, :string, default: "%")
 
   def metric_gauge(assigns) do
     assigns = assign(assigns, :clamped, min(100, max(0, assigns.value)))
@@ -127,9 +127,9 @@ defmodule KfosUi.CyberComponents do
 
   # ── Log Viewer ────────────────────────────────────────────────────────
 
-  attr :id, :string, required: true
-  attr :log, :string, default: ""
-  attr :class, :string, default: nil
+  attr(:id, :string, required: true)
+  attr(:log, :string, default: "")
+  attr(:class, :string, default: nil)
 
   def log_viewer(assigns) do
     ~H"""
@@ -149,8 +149,8 @@ defmodule KfosUi.CyberComponents do
 
   # ── Health Grid ───────────────────────────────────────────────────────
 
-  attr :checks, :list, required: true
-  attr :class, :string, default: nil
+  attr(:checks, :list, required: true)
+  attr(:class, :string, default: nil)
 
   def health_grid(assigns) do
     ~H"""
@@ -178,14 +178,14 @@ defmodule KfosUi.CyberComponents do
 
   # ── Action Button ─────────────────────────────────────────────────────
 
-  attr :label, :string, required: true
-  attr :event, :string, default: nil
-  attr :value, :any, default: nil
-  attr :size, :string, default: "sm"
-  attr :variant, :string, default: "soft"
-  attr :confirm, :string, default: nil
-  attr :icon_name, :string, default: nil
-  attr :class, :string, default: nil
+  attr(:label, :string, required: true)
+  attr(:event, :string, default: nil)
+  attr(:value, :any, default: nil)
+  attr(:size, :string, default: "sm")
+  attr(:variant, :string, default: "soft")
+  attr(:confirm, :string, default: nil)
+  attr(:icon_name, :string, default: nil)
+  attr(:class, :string, default: nil)
 
   def action_button(assigns) do
     ~H"""
@@ -218,10 +218,10 @@ defmodule KfosUi.CyberComponents do
 
   # ── Stat Card ─────────────────────────────────────────────────────────
 
-  attr :title, :string, required: true
-  attr :value, :any, required: true
-  attr :description, :string, default: nil
-  attr :icon_name, :string, default: nil
+  attr(:title, :string, required: true)
+  attr(:value, :any, required: true)
+  attr(:description, :string, default: nil)
+  attr(:icon_name, :string, default: nil)
 
   def stat_card(assigns) do
     ~H"""
@@ -238,8 +238,8 @@ defmodule KfosUi.CyberComponents do
 
   # ── Empty State ───────────────────────────────────────────────────────
 
-  attr :message, :string, default: "NO DATA FEED"
-  attr :icon_name, :string, default: "hero-inbox"
+  attr(:message, :string, default: "NO DATA FEED")
+  attr(:icon_name, :string, default: "hero-inbox")
 
   def empty_state(assigns) do
     ~H"""
@@ -253,9 +253,9 @@ defmodule KfosUi.CyberComponents do
 
   # ── Page Header ───────────────────────────────────────────────────────
 
-  attr :title, :string, required: true
-  attr :subtitle, :string, default: nil
-  slot :actions
+  attr(:title, :string, required: true)
+  attr(:subtitle, :string, default: nil)
+  slot(:actions)
 
   def page_header(assigns) do
     ~H"""
@@ -281,17 +281,17 @@ defmodule KfosUi.CyberComponents do
 
   # ── Dossier Card (Mission Report Card) ─────────────────────────────────
 
-  attr :title, :string, required: true
-  attr :subtitle, :string, default: nil
-  attr :status, :atom, default: nil
-  attr :navigate, :string, default: nil
-  attr :class, :string, default: nil
+  attr(:title, :string, required: true)
+  attr(:subtitle, :string, default: nil)
+  attr(:status, :atom, default: nil)
+  attr(:navigate, :string, default: nil)
+  attr(:class, :string, default: nil)
 
   slot :field do
-    attr :label, :string, required: true
+    attr(:label, :string, required: true)
   end
 
-  slot :actions
+  slot(:actions)
 
   def dossier_card(assigns) do
     ~H"""
@@ -345,9 +345,9 @@ defmodule KfosUi.CyberComponents do
 
   # ── Tab Navigation ────────────────────────────────────────────────────
 
-  attr :tabs, :list, required: true
-  attr :active_tab, :atom, required: true
-  attr :target, :any, default: nil
+  attr(:tabs, :list, required: true)
+  attr(:active_tab, :atom, required: true)
+  attr(:target, :any, default: nil)
 
   def tab_nav(assigns) do
     ~H"""
