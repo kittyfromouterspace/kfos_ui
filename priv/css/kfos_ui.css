@@ -625,6 +625,63 @@ textarea {
 .router-metric .is-red { color: var(--cyber-red); }
 .router-metric .is-positive { color: var(--cyber-green); }
 
+.kfos-summary-metric {
+  min-width: 0;
+  min-height: 92px;
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  padding: 15px 17px;
+}
+
+.kfos-summary-metric-icon {
+  width: 36px;
+  height: 36px;
+  flex: none;
+  display: grid;
+  place-items: center;
+  border: 1px solid currentColor;
+  border-radius: 4px;
+}
+
+.kfos-summary-metric-icon.is-cyan { color: var(--cyber-cyan); background: color-mix(in oklch, var(--cyber-cyan) 12%, var(--cyber-surface)); }
+.kfos-summary-metric-icon.is-green { color: var(--cyber-green); background: color-mix(in oklch, var(--cyber-green) 12%, var(--cyber-surface)); }
+.kfos-summary-metric-icon.is-amber { color: var(--cyber-amber); background: color-mix(in oklch, var(--cyber-amber) 12%, var(--cyber-surface)); }
+.kfos-summary-metric-icon.is-magenta { color: var(--cyber-magenta); background: color-mix(in oklch, var(--cyber-magenta) 12%, var(--cyber-surface)); }
+.kfos-summary-metric-icon.is-red { color: var(--cyber-red); background: color-mix(in oklch, var(--cyber-red) 12%, var(--cyber-surface)); }
+
+.kfos-summary-metric small,
+.kfos-summary-metric strong,
+.kfos-summary-metric div > span { display: block; }
+
+.kfos-summary-metric small {
+  color: var(--cyber-muted);
+  font: 750 0.52rem ui-monospace, monospace;
+  text-transform: uppercase;
+}
+
+.kfos-summary-metric strong {
+  margin-top: 3px;
+  color: var(--cyber-text);
+  font: 750 1.35rem ui-monospace, monospace;
+  white-space: nowrap;
+}
+
+.kfos-summary-metric div > span {
+  max-width: 150px;
+  margin-top: 3px;
+  overflow: hidden;
+  color: var(--cyber-text-soft);
+  font-size: 0.5rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@media (max-width: 620px) {
+  .kfos-summary-metric { min-height: 84px; padding: 12px; }
+  .kfos-summary-metric-icon { display: none; }
+}
+
 .kfos-app-header {
   display: block;
   padding: 1rem;
@@ -1001,4 +1058,63 @@ textarea {
 [data-theme-source="dark"] .kfos-theme-button[data-phx-theme="dark"] {
   color: var(--cyber-cyan);
   text-shadow: 0 0 6px color-mix(in oklch, var(--cyber-cyan) 60%, transparent);
+}
+
+.kfos-account-menu {
+  min-width: 0;
+  min-height: 36px;
+  display: grid;
+  grid-template-columns: 28px minmax(0, 1fr) 28px;
+  align-items: center;
+  gap: 7px;
+}
+
+.kfos-account-avatar {
+  width: 28px;
+  height: 28px;
+  display: grid;
+  place-items: center;
+  border: 1px solid color-mix(in oklch, var(--cyber-cyan) 35%, var(--cyber-line));
+  border-radius: 50%;
+  background: color-mix(in oklch, var(--cyber-cyan) 12%, var(--cyber-surface));
+  color: var(--cyber-cyan);
+  font-size: 0.55rem;
+  font-weight: 800;
+}
+
+.kfos-account-copy { min-width: 0; }
+
+.kfos-account-copy strong,
+.kfos-account-copy small {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.kfos-account-copy strong {
+  color: var(--cyber-text);
+  font-size: 0.5rem;
+}
+
+.kfos-account-copy small {
+  margin-top: 2px;
+  color: var(--cyber-muted);
+  font-size: 0.45rem;
+  text-transform: uppercase;
+}
+
+.kfos-account-action {
+  width: 28px;
+  height: 28px;
+  display: grid;
+  place-items: center;
+  border-radius: 3px;
+  color: var(--cyber-muted);
+  text-decoration: none;
+}
+
+.kfos-account-action:hover {
+  background: var(--cyber-panel);
+  color: var(--cyber-cyan);
 }

@@ -246,6 +246,36 @@ defmodule KfosUi.LayoutComponents do
     """
   end
 
+  attr(:initials, :string, required: true)
+  attr(:label, :string, required: true)
+  attr(:detail, :string, required: true)
+  attr(:action_href, :string, required: true)
+  attr(:action_label, :string, required: true)
+  attr(:action_icon, :string, required: true)
+  attr(:action_method, :string, default: nil)
+  attr(:class, :any, default: nil)
+
+  def account_menu(assigns) do
+    ~H"""
+    <div class={["kfos-account-menu", @class]}>
+      <span class="kfos-account-avatar" title={@label}>{@initials}</span>
+      <div class="kfos-account-copy">
+        <strong>{@label}</strong>
+        <small>{@detail}</small>
+      </div>
+      <.link
+        href={@action_href}
+        method={@action_method}
+        class="kfos-account-action"
+        title={@action_label}
+        aria-label={@action_label}
+      >
+        <.icon name={@action_icon} class="size-4" />
+      </.link>
+    </div>
+    """
+  end
+
   attr(:flash, :map, required: true, doc: "the map of flash messages")
   attr(:id, :string, default: "flash-group", doc: "the optional id of flash container")
   attr(:client_title, :string, default: "SIGNAL LOST")

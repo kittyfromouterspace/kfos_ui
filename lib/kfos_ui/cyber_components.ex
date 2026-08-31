@@ -10,6 +10,8 @@ defmodule KfosUi.CyberComponents do
 
   use Phoenix.Component
 
+  import KfosUi.CoreComponents, only: [icon: 1]
+
   alias Phoenix.LiveView.JS
 
   # ── Status Badge ──────────────────────────────────────────────────────
@@ -233,6 +235,31 @@ defmodule KfosUi.CyberComponents do
       <div class="stat-value text-primary">{@value}</div>
       <div :if={@description} class="stat-desc text-base-content/50">{@description}</div>
     </div>
+    """
+  end
+
+  # ── Summary Metric ────────────────────────────────────────────────────
+
+  attr(:id, :string, default: nil)
+  attr(:icon, :string, required: true)
+  attr(:tone, :string, required: true, values: ~w(cyan green amber magenta red))
+  attr(:label, :string, required: true)
+  attr(:value, :any, required: true)
+  attr(:detail, :string, required: true)
+  attr(:class, :any, default: nil)
+
+  def summary_metric(assigns) do
+    ~H"""
+    <article id={@id} class={["kfos-summary-metric", @class]}>
+      <span class={["kfos-summary-metric-icon", "is-#{@tone}"]}>
+        <.icon name={@icon} class="size-5" />
+      </span>
+      <div>
+        <small>{@label}</small>
+        <strong>{@value}</strong>
+        <span>{@detail}</span>
+      </div>
+    </article>
     """
   end
 

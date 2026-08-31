@@ -177,6 +177,7 @@ Use this instead of a page-specific h1. Preserve the page ID for tests and brows
 
 - status_badge status={@status}: semantic success, warning, error, info, or neutral badge
 - metric_gauge label="CPU" value={@cpu_percent}: percentage gauge clamped to 0..100
+- summary_metric: compact icon, value, and context for dashboard metric bands
 - stat_card: compact summary value, not a whole page section
 - dossier_card: repeated record with status, fields, actions, and optional inspection navigation
 - log_viewer id="deployment-log" log={@deployment_log}: numbered, scrollable text
@@ -251,7 +252,7 @@ Use app_header in every application sidebar or compact mobile shell. It is the c
 
 Pass image_src for a product mark image. Omit href for a non-linked header. Use external={true} only for an external URL. Reserve accent for an intentional secondary identity fragment.
 
-#### Navigation, theme, and flash
+#### Navigation, account, theme, and flash
 
 ~~~heex
 <.nav_label label="OPERATIONS" />
@@ -263,6 +264,15 @@ Pass image_src for a product mark image. Omit href for a non-linked header. Use 
   active={@active_nav == :runs}
 />
 <.theme_toggle />
+<.account_menu
+  initials="OP"
+  label="operator@kfos.nz"
+  detail="admin"
+  action_href="/logout"
+  action_label="Sign out"
+  action_icon="hero-arrow-right-start-on-rectangle"
+  action_method="delete"
+/>
 <.flash_group flash={@flash} />
 ~~~
 
