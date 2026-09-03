@@ -34,6 +34,7 @@
   --cyber-cyan: oklch(78% 0.18 195);
   --cyber-amber: oklch(75% 0.16 85);
   --cyber-magenta: oklch(68% 0.22 330);
+  --cyber-magenta-text: oklch(72% 0.2 330);
   --cyber-red: oklch(65% 0.25 25);
   --cyber-bg: oklch(9% 0.012 160);
   --cyber-surface: oklch(12% 0.015 160);
@@ -83,6 +84,7 @@
   --cyber-cyan: oklch(55% 0.18 205);
   --cyber-amber: oklch(67% 0.17 82);
   --cyber-magenta: oklch(57% 0.24 333);
+  --cyber-magenta-text: oklch(46% 0.2 333);
   --cyber-red: oklch(58% 0.24 24);
   --cyber-bg: oklch(97% 0.018 105);
   --cyber-surface: oklch(99% 0.012 108);
@@ -133,6 +135,7 @@
     --cyber-cyan: oklch(55% 0.18 205);
     --cyber-amber: oklch(67% 0.17 82);
     --cyber-magenta: oklch(57% 0.24 333);
+    --cyber-magenta-text: oklch(46% 0.2 333);
     --cyber-red: oklch(58% 0.24 24);
     --cyber-bg: oklch(97% 0.018 105);
     --cyber-surface: oklch(99% 0.012 108);
@@ -744,12 +747,12 @@ textarea {
 }
 
 .kfos-app-header-title span {
-  color: var(--cyber-magenta);
+  color: var(--cyber-magenta-text);
 }
 
 .kfos-app-header-subtitle {
   margin-top: 0.32rem;
-  color: color-mix(in oklch, var(--cyber-green) 42%, transparent);
+  color: var(--cyber-text-soft);
   font-size: 0.55rem;
   font-weight: 700;
   line-height: 1;

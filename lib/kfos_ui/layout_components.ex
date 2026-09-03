@@ -52,7 +52,7 @@ defmodule KfosUi.LayoutComponents do
       </div>
 
       <div class="drawer-side z-40">
-        <label for={@toggle_id} aria-label="Close navigation" class="drawer-overlay"></label>
+        <label for={@toggle_id} aria-hidden="true" class="drawer-overlay"></label>
         <aside id={@sidebar_id} class={@sidebar_class}>
           {render_slot(@sidebar_header)}
           {render_slot(@sidebar_nav)}

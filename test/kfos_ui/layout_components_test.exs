@@ -26,6 +26,8 @@ defmodule KfosUi.LayoutComponentsTest do
     assert html =~ "TEST//APP"
     assert html =~ "Navigation"
     assert html =~ "Content"
+    assert html =~ ~s(aria-hidden="true" class="drawer-overlay")
+    refute html =~ ~s(aria-label="Close navigation")
   end
 
   test "theme_toggle exposes system, light, and dark choices" do
