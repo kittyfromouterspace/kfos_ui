@@ -31,11 +31,15 @@
   --depth: 0;
   --noise: 0;
   --cyber-green: oklch(78% 0.18 160);
+  --cyber-green-text: var(--cyber-green);
   --cyber-cyan: oklch(78% 0.18 195);
+  --cyber-cyan-text: var(--cyber-cyan);
   --cyber-amber: oklch(75% 0.16 85);
+  --cyber-amber-text: var(--cyber-amber);
   --cyber-magenta: oklch(68% 0.22 330);
   --cyber-magenta-text: oklch(72% 0.2 330);
   --cyber-red: oklch(65% 0.25 25);
+  --cyber-red-text: var(--cyber-red);
   --cyber-bg: oklch(9% 0.012 160);
   --cyber-surface: oklch(12% 0.015 160);
   --cyber-panel: oklch(15% 0.02 160);
@@ -81,11 +85,15 @@
   --depth: 0;
   --noise: 0;
   --cyber-green: oklch(58% 0.18 155);
+  --cyber-green-text: oklch(42% 0.15 155);
   --cyber-cyan: oklch(55% 0.18 205);
+  --cyber-cyan-text: oklch(42% 0.15 205);
   --cyber-amber: oklch(67% 0.17 82);
+  --cyber-amber-text: oklch(42% 0.13 82);
   --cyber-magenta: oklch(57% 0.24 333);
-  --cyber-magenta-text: oklch(46% 0.2 333);
+  --cyber-magenta-text: oklch(42% 0.18 333);
   --cyber-red: oklch(58% 0.24 24);
+  --cyber-red-text: oklch(45% 0.2 24);
   --cyber-bg: oklch(97% 0.018 105);
   --cyber-surface: oklch(99% 0.012 108);
   --cyber-panel: oklch(96% 0.025 112);
@@ -95,7 +103,7 @@
   --cyber-text: oklch(21% 0.035 175);
   --cyber-text-strong: oklch(18% 0.04 175);
   --cyber-text-soft: oklch(38% 0.055 175);
-  --cyber-muted: oklch(46% 0.055 180);
+  --cyber-muted: oklch(40% 0.05 180);
   --cyber-control: oklch(98% 0.015 108);
   --cyber-control-raised: oklch(91% 0.035 112);
 }
@@ -132,11 +140,15 @@
     --depth: 0;
     --noise: 0;
     --cyber-green: oklch(58% 0.18 155);
+    --cyber-green-text: oklch(42% 0.15 155);
     --cyber-cyan: oklch(55% 0.18 205);
+    --cyber-cyan-text: oklch(42% 0.15 205);
     --cyber-amber: oklch(67% 0.17 82);
+    --cyber-amber-text: oklch(42% 0.13 82);
     --cyber-magenta: oklch(57% 0.24 333);
-    --cyber-magenta-text: oklch(46% 0.2 333);
+    --cyber-magenta-text: oklch(42% 0.18 333);
     --cyber-red: oklch(58% 0.24 24);
+    --cyber-red-text: oklch(45% 0.2 24);
     --cyber-bg: oklch(97% 0.018 105);
     --cyber-surface: oklch(99% 0.012 108);
     --cyber-panel: oklch(96% 0.025 112);
@@ -146,7 +158,7 @@
     --cyber-text: oklch(21% 0.035 175);
     --cyber-text-strong: oklch(18% 0.04 175);
     --cyber-text-soft: oklch(38% 0.055 175);
-    --cyber-muted: oklch(46% 0.055 180);
+    --cyber-muted: oklch(40% 0.05 180);
     --cyber-control: oklch(98% 0.015 108);
     --cyber-control-raised: oklch(91% 0.035 112);
   }
@@ -275,7 +287,7 @@ textarea {
 .cyber-sidebar .menu li > button:hover {
   border-color: color-mix(in oklch, var(--cyber-cyan) 20%, transparent);
   background: color-mix(in oklch, var(--cyber-cyan) 8%, transparent);
-  color: var(--cyber-cyan);
+  color: var(--cyber-cyan-text);
   text-shadow: 0 0 8px color-mix(in oklch, var(--cyber-cyan) 40%, transparent);
 }
 
@@ -283,13 +295,13 @@ textarea {
 .cyber-sidebar .menu li > button.active {
   border-color: color-mix(in oklch, var(--cyber-cyan) 35%, transparent);
   background: color-mix(in oklch, var(--cyber-cyan) 12%, transparent);
-  color: var(--cyber-cyan);
+  color: var(--cyber-cyan-text);
   box-shadow: 0 0 10px color-mix(in oklch, var(--cyber-cyan) 10%, transparent);
   text-shadow: 0 0 8px color-mix(in oklch, var(--cyber-cyan) 40%, transparent);
 }
 
 .cyber-sidebar .menu-title {
-  color: var(--cyber-amber) !important;
+  color: var(--cyber-amber-text) !important;
   font-size: 0.65rem;
   text-transform: uppercase;
   text-shadow: 0 0 6px color-mix(in oklch, var(--cyber-amber) 30%, transparent);
@@ -312,7 +324,7 @@ textarea {
 
 .table thead th {
   border-bottom: 1px solid color-mix(in oklch, var(--cyber-cyan) 20%, transparent);
-  color: var(--cyber-amber);
+  color: var(--cyber-amber-text);
   font-size: 0.7rem;
   text-transform: uppercase;
   text-shadow: 0 0 5px color-mix(in oklch, var(--cyber-amber) 20%, transparent);
@@ -344,7 +356,7 @@ textarea {
 }
 
 .stat-title {
-  color: var(--cyber-amber);
+  color: var(--cyber-amber-text);
   font-size: 0.65rem;
   text-transform: uppercase;
 }
@@ -444,7 +456,7 @@ textarea {
 
 .tabs-border .tab-active {
   border-bottom-color: var(--cyber-cyan);
-  color: var(--cyber-cyan);
+  color: var(--cyber-cyan-text);
   text-shadow: 0 0 8px color-mix(in oklch, var(--cyber-cyan) 30%, transparent);
 }
 
@@ -461,7 +473,7 @@ textarea {
 }
 
 .link {
-  color: var(--cyber-cyan);
+  color: var(--cyber-cyan-text);
 }
 
 .link:hover {
@@ -621,12 +633,12 @@ textarea {
   font-size: 0.58rem;
 }
 
-.router-metric .is-cyan { color: var(--cyber-cyan); }
-.router-metric .is-green { color: var(--cyber-green); }
-.router-metric .is-amber { color: var(--cyber-amber); }
-.router-metric .is-magenta { color: var(--cyber-magenta); }
-.router-metric .is-red { color: var(--cyber-red); }
-.router-metric .is-positive { color: var(--cyber-green); }
+.router-metric .is-cyan { color: var(--cyber-cyan-text); }
+.router-metric .is-green { color: var(--cyber-green-text); }
+.router-metric .is-amber { color: var(--cyber-amber-text); }
+.router-metric .is-magenta { color: var(--cyber-magenta-text); }
+.router-metric .is-red { color: var(--cyber-red-text); }
+.router-metric .is-positive { color: var(--cyber-green-text); }
 
 .kfos-summary-metric {
   min-width: 0;
@@ -647,11 +659,11 @@ textarea {
   border-radius: 4px;
 }
 
-.kfos-summary-metric-icon.is-cyan { color: var(--cyber-cyan); background: color-mix(in oklch, var(--cyber-cyan) 12%, var(--cyber-surface)); }
-.kfos-summary-metric-icon.is-green { color: var(--cyber-green); background: color-mix(in oklch, var(--cyber-green) 12%, var(--cyber-surface)); }
-.kfos-summary-metric-icon.is-amber { color: var(--cyber-amber); background: color-mix(in oklch, var(--cyber-amber) 12%, var(--cyber-surface)); }
-.kfos-summary-metric-icon.is-magenta { color: var(--cyber-magenta); background: color-mix(in oklch, var(--cyber-magenta) 12%, var(--cyber-surface)); }
-.kfos-summary-metric-icon.is-red { color: var(--cyber-red); background: color-mix(in oklch, var(--cyber-red) 12%, var(--cyber-surface)); }
+.kfos-summary-metric-icon.is-cyan { color: var(--cyber-cyan-text); background: color-mix(in oklch, var(--cyber-cyan) 12%, var(--cyber-surface)); }
+.kfos-summary-metric-icon.is-green { color: var(--cyber-green-text); background: color-mix(in oklch, var(--cyber-green) 12%, var(--cyber-surface)); }
+.kfos-summary-metric-icon.is-amber { color: var(--cyber-amber-text); background: color-mix(in oklch, var(--cyber-amber) 12%, var(--cyber-surface)); }
+.kfos-summary-metric-icon.is-magenta { color: var(--cyber-magenta-text); background: color-mix(in oklch, var(--cyber-magenta) 12%, var(--cyber-surface)); }
+.kfos-summary-metric-icon.is-red { color: var(--cyber-red-text); background: color-mix(in oklch, var(--cyber-red) 12%, var(--cyber-surface)); }
 
 .kfos-summary-metric small,
 .kfos-summary-metric strong,
@@ -713,7 +725,7 @@ textarea {
   height: 1.75rem;
   display: grid;
   place-items: center;
-  color: var(--cyber-green);
+  color: var(--cyber-green-text);
   font-size: 0.78rem;
   font-weight: 900;
   line-height: 1;
@@ -736,7 +748,7 @@ textarea {
 }
 
 .kfos-app-header-title {
-  color: var(--cyber-green);
+  color: var(--cyber-green-text);
   text-shadow: 0 0 7px color-mix(in oklch, var(--cyber-green) 80%, transparent),
     0 0 15px color-mix(in oklch, var(--cyber-green) 35%, transparent);
   font-size: 0.875rem;
@@ -761,7 +773,7 @@ textarea {
 }
 
 .kfos-page-header-title {
-  color: var(--cyber-green);
+  color: var(--cyber-green-text);
   text-shadow: 0 0 7px color-mix(in oklch, var(--cyber-green) 80%, transparent),
     0 0 15px color-mix(in oklch, var(--cyber-green) 35%, transparent);
 }
@@ -825,7 +837,7 @@ textarea {
 
 .kfos-local-clock strong {
   margin-top: 0.16rem;
-  color: var(--cyber-green);
+  color: var(--cyber-green-text);
   font-size: 1.05rem;
   font-variant-numeric: tabular-nums;
   letter-spacing: 0.08em;
@@ -866,7 +878,7 @@ textarea {
 .kfos-nav-item.active,
 .home-nav-item.active,
 .forge-nav-item.active {
-  color: var(--cyber-cyan);
+  color: var(--cyber-cyan-text);
   border-left-color: var(--cyber-cyan);
   background: color-mix(in oklch, var(--cyber-cyan) 13%, transparent);
   text-shadow: 0 0 8px color-mix(in oklch, var(--cyber-cyan) 36%, transparent);
@@ -882,7 +894,7 @@ textarea {
 .kfos-nav-label,
 .home-nav-label {
   margin: 18px 9px 6px;
-  color: var(--cyber-amber);
+  color: var(--cyber-amber-text);
   font-size: 0.58rem;
   font-weight: 800;
   text-transform: uppercase;
@@ -977,7 +989,7 @@ textarea {
 }
 
 .kfos-theme-current {
-  color: var(--cyber-cyan);
+  color: var(--cyber-cyan-text);
   font: inherit;
   text-shadow: 0 0 6px color-mix(in oklch, var(--cyber-cyan) 55%, transparent);
 }
@@ -1053,13 +1065,13 @@ textarea {
 
 .kfos-theme-button:hover,
 .forge-theme-button:hover {
-  color: var(--cyber-cyan);
+  color: var(--cyber-cyan-text);
 }
 
 [data-theme-source="system"] .kfos-theme-button[data-phx-theme="system"],
 [data-theme-source="light"] .kfos-theme-button[data-phx-theme="light"],
 [data-theme-source="dark"] .kfos-theme-button[data-phx-theme="dark"] {
-  color: var(--cyber-cyan);
+  color: var(--cyber-cyan-text);
   text-shadow: 0 0 6px color-mix(in oklch, var(--cyber-cyan) 60%, transparent);
 }
 
@@ -1080,7 +1092,7 @@ textarea {
   border: 1px solid color-mix(in oklch, var(--cyber-cyan) 35%, var(--cyber-line));
   border-radius: 50%;
   background: color-mix(in oklch, var(--cyber-cyan) 12%, var(--cyber-surface));
-  color: var(--cyber-cyan);
+  color: var(--cyber-cyan-text);
   font-size: 0.55rem;
   font-weight: 800;
 }
@@ -1119,5 +1131,5 @@ textarea {
 
 .kfos-account-action:hover {
   background: var(--cyber-panel);
-  color: var(--cyber-cyan);
+  color: var(--cyber-cyan-text);
 }
