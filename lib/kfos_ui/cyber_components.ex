@@ -248,18 +248,87 @@ defmodule KfosUi.CyberComponents do
   attr(:detail, :string, required: true)
   attr(:class, :any, default: nil)
 
+  attr(:navigate, :string,
+    default: nil,
+    doc: "when set, the whole tile is a link (e.g. a counter that opens its screen)"
+  )
+
+  attr(:attention, :boolean,
+    default: false,
+    doc: "flag the tile as needing the operator (an accent rule under it)"
+  )
+
+  def summary_metric(%{navigate: nil} = assigns) do
+    ~H"""
+    <article
+      id={@id}
+      class={["kfos-summary-metric", @attention && "is-attention", @class]}
+    >
+      <.summary_metric_body icon={@icon} tone={@tone} label={@label} value={@value} detail={@detail} />
+    </article>
+    """
+  end
+
   def summary_metric(assigns) do
     ~H"""
-    <article id={@id} class={["kfos-summary-metric", @class]}>
-      <span class={["kfos-summary-metric-icon", "is-#{@tone}"]}>
-        <.icon name={@icon} class="size-5" />
-      </span>
-      <div>
-        <small>{@label}</small>
-        <strong>{@value}</strong>
-        <span>{@detail}</span>
-      </div>
-    </article>
+    <.link
+      id={@id}
+      navigate={@navigate}
+      class={["kfos-summary-metric is-link", @attention && "is-attention", @class]}
+      aria-label={"#{@label}: #{@value} — #{@detail}"}
+    >
+      <.summary_metric_body icon={@icon} tone={@tone} label={@label} value={@value} detail={@detail} />
+      <.icon name="hero-arrow-up-right" class="kfos-summary-metric-go size-4" />
+    </.link>
+    """
+  end
+
+  defp summary_metric_body(assigns) do
+    ~H"""
+    <span class={["kfos-summary-metric-icon", "is-#{@tone}"]}>
+      <.icon name={@icon} class="size-5" />
+    </span>
+    <div>
+      <small>{@label}</small>
+      <strong>{@value}</strong>
+      <span>{@detail}</span>
+    </div>
+    """
+  end
+
+  # ── Activity Feed ─────────────────────────────────────────────────────
+
+  @doc """
+  A time-ordered list of things that happened ("what changed"): each item a
+  kind chip, a title (a link when `href` is set), an optional detail line and
+  a time label. Domain-neutral — the caller maps its records to items.
+
+  Items: `%{kind: atom | string, title: string, detail: string | nil,
+  href: string | nil, time: string | nil}`. Kinds with a built-in accent:
+  `code` (green), `ops` (amber), `work` (cyan), `alert` (red); anything else
+  is neutral. `kind_label` overrides the chip text per item.
+  """
+  attr(:id, :string, default: nil)
+  attr(:items, :list, required: true)
+  attr(:empty, :string, default: "Nothing happened in this window.")
+  attr(:class, :any, default: nil)
+
+  def activity_feed(assigns) do
+    ~H"""
+    <div id={@id} class={["kfos-activity", @class]}>
+      <p :if={@items == []} class="kfos-activity-empty">{@empty}</p>
+      <ul :if={@items != []} class="kfos-activity-list">
+        <li :for={item <- @items} class={["kfos-activity-item", "is-#{item[:kind]}"]}>
+          <span class="kfos-activity-kind">{item[:kind_label] || item[:kind]}</span>
+          <div class="kfos-activity-copy">
+            <.link :if={item[:href]} navigate={item[:href]}>{item.title}</.link>
+            <strong :if={!item[:href]}>{item.title}</strong>
+            <small :if={item[:detail]}>{item.detail}</small>
+          </div>
+          <time :if={item[:time]}>{item.time}</time>
+        </li>
+      </ul>
+    </div>
     """
   end
 

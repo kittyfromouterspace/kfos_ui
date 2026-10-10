@@ -74,4 +74,50 @@ defmodule KfosUi.LayoutComponentsTest do
     assert html =~ "Queue depth"
     assert html =~ "3 currently running"
   end
+
+  test "summary_metric with navigate is a link tile, flagged when it needs attention" do
+    html =
+      render_component(&CyberComponents.summary_metric/1,
+        id: "approvals",
+        icon: "hero-hand-raised",
+        tone: "amber",
+        label: "Approvals",
+        value: 2,
+        detail: "2 ops actions",
+        navigate: "/approvals",
+        attention: true
+      )
+
+    assert html =~ ~s(<a)
+    assert html =~ ~s(href="/approvals")
+    assert html =~ "kfos-summary-metric is-link"
+    assert html =~ "is-attention"
+    assert html =~ ~s(aria-label="Approvals: 2 — 2 ops actions")
+  end
+
+  test "activity_feed renders kind chips, linked titles, details and times; empty state" do
+    html =
+      render_component(&CyberComponents.activity_feed/1,
+        id: "feed",
+        items: [
+          %{
+            kind: :code,
+            title: "Fix pushed",
+            href: "/runs/job_1",
+            detail: "branch agent/1",
+            time: "08:19"
+          },
+          %{kind: :sre, kind_label: "watch", title: "22 passes", time: "24h"}
+        ]
+      )
+
+    assert html =~ "kfos-activity-item is-code"
+    assert html =~ ~s(href="/runs/job_1")
+    assert html =~ "branch agent/1"
+    assert html =~ "watch"
+    assert html =~ "08:19"
+
+    empty = render_component(&CyberComponents.activity_feed/1, items: [], empty: "Quiet day.")
+    assert empty =~ "Quiet day."
+  end
 end
