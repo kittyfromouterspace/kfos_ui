@@ -5,7 +5,7 @@ defmodule KfosUi.MixProject do
     [
       app: :kfos_ui,
       version: "0.1.0",
-      elixir: "~> 1.15",
+      elixir: "~> 1.20",
       deps: deps()
     ]
   end
